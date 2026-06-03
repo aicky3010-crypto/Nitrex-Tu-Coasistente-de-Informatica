@@ -1,0 +1,105 @@
+/* Estilos generales */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: w;
+  color: #cbd5e1;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-thumb { background: rgb(26, 26, 94); border-radius: 10px; }
+
+/* Bloques de código */
+.code-block {
+  background: #1e1e1e;
+  color: #54c2f5;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Avatar del bot */
+
+.bot{
+  width: 90px;
+  height: 90px;
+  border-radius: 30%;
+  margin-bottom: 0.5rem;
+}
+
+
+/* Mensajes */
+.message-wrapper {
+  display: flex;
+  align-items: center;
+  max-width: 60%;
+  margin-bottom: 8px;
+}
+
+.user-message {
+  flex-direction: row-reverse;
+  margin-left: auto;
+}
+
+.bot-message {
+  flex-direction: row;
+  margin-right: auto;
+}
+
+.message-text {
+  background: #374151;
+  padding: 12px 16px;
+  border-radius: 8px;
+  word-break: break-word;
+}
+
+/* Avatares */
+.bot-avatar{
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-avatar {
+  width: 60px;
+  height: 60px;
+}
+/* Footer e input */
+.chat-footer {
+  padding: 16px;
+  background-color: #8a888b;
+}
+
+.input-wrapper {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+textarea {
+  width: 100%;
+  padding: 12px 48px 12px 16px;
+  border-radius: 12px;
+  border: 1px solid aquamarine;
+  background-color: aquamarine ;
+  color: #6ae2ef;
+  resize: none;
+  outline: none;
+}
+
+#send-button {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #3b82f6;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+#send-button:hover {
+  color: #60a5fa;
+}
