@@ -41,7 +41,7 @@
       <div class="message-container bot-message">
         <!-- 👇 AQUÍ CAMBIAS la imagen del BOT inicial -->
         <img src="muñeco.png" alt="Nitrex" class="bot-avatar">
-        <!-- Ejemplo: img src="img/bot.png" -->
+        <!-- ejemplo: src="img/bot.png" -->
         <div class="message-text">¡Hola! Soy Nitrex, ¿En qué puedo ayudarte?</div>
       </div>
     </div>
@@ -69,7 +69,7 @@ let historial = [];
 function generateBotResponse(message) {
   const msgLower = message.toLowerCase();
 
-  if (msgLower.includes('hola')) return '¡Hola! Encantado de saludarte. Puedes preguntarme sobre HTML, CSS, JavaScript, Java, Python.';
+  if (msgLower.includes('hola')) return '¡Hola! Encantado de saludarte. Puedes preguntarme sobre HTML, CSS, JavaScript, Java, Python, Variable, Elementos, Datos, Primitivos y Estructurados.';
   if (msgLower.includes('javascript') || msgLower === 'js') return 'JavaScript es un lenguaje de programación muy versátil usado principalmente en la web.';
   if (msgLower.includes('java')) return 'Java es un lenguaje orientado a objetos usado en aplicaciones empresariales y móviles.';
   if (msgLower.includes('html')) return 'HTML es el lenguaje de marcado que estructura el contenido de las páginas web.';
@@ -77,6 +77,9 @@ function generateBotResponse(message) {
   if (msgLower.includes('python')) return 'Python es fácil de aprender y potente, usado en web, ciencia de datos e IA.';
   if (msgLower.includes('variable')) return 'Una variable en programación es un espacio en memoria que se utiliza para almacenar datos que pueden ser recuperados y manipulados durante la ejecución de un programa. Estas permiten guardar valores, asignarlos a otras variables, utilizarlos en expresiones matemáticas o mostrarlos en pantalla.';
   if (msgLower.includes('elementos')) return 'HTML tiene aproximadamente 117 elementos que se utilizan para estructurar el contenido de una página web. Algunos de los elementos más comunes incluyen: div, span, p, a, img, ul, li, table, entre otros. Cada elemento tiene una función específica y se utiliza para organizar y presentar la información de manera efectiva en la web.';
+  if (msgLower.includes('datos')) return ' Los tipos de datos de programación clasifican la información que un programa puede procesar, indicando al compilador cómo usarla y cúanto espacio ocupa en memoria. Se dividen en primitivos (enteros, flotantes, booleanos, caracteres) y estructurados/compuestos (arrays, estructuras), siendo fundamental para la manipulación eficiente de información.';
+  if (msgLower.includes('primitivo')) return 'Se dividen en: Enteros(int): Números sin decimales, ya sean positivos o negativos; Números de punto flotante (float, double): Números con decimales; Booleanos(bool): Valores lógicos, osea, verdadero o falso(true/false); Caracteres(char): Símbolos individuales; Cadenas de caracteres(String): Secuencia de texto.';
+  if (msgLower.includes('estructurados')) return 'Los tipos de datos estructurados son aquellos que permiten agrupar varios valores de otros tipos de datos en una sola unidad. Arreglos(Arrays): Colecciones de elementos del mismo tipo; Registros(structs): Agrupación de datos de diferentes tipos.';
   if (msgLower.includes('gracias')) return '¡De nada! Estoy aquí para ayudarte con cualquier pregunta de programación.';
   return `No estoy seguro de eso, pero puedo intentar explicarlo: "${message}".`;
 }
@@ -87,13 +90,13 @@ function mostrarMensaje(usuario, mensaje) {
   wrapper.className = 'message-wrapper ' + (usuario ? 'user-message' : 'bot-message');
   wrapper.innerHTML = `
     <!-- 👇 AQUÍ CAMBIAS las imágenes dinámicas -->
-    <img src="${usuario ? 'user.png' : 'muñeco.png'}" 
+    <img src="${usuario ? 'img1.png' : 'muñeco.png'}" 
     alt="${usuario ? 'Usuario' : 'Bot'}" 
     class="${usuario ? 'user-avatar' : 'bot'}">
     
-    <!-- Ejemplo:
-    usuario: img/user.png
-    bot: img/bot.png
+    <!-- ejemplo:
+    usuario → img/user.png o img1.png
+    bot → img/bot.png o muñeco.png
     -->
 
     <div class="message-text">${mensaje}</div>
@@ -110,7 +113,6 @@ function agregarHistorial(pregunta) {
   btn.className = 'p-2 hover:bg-gray-700 rounded w-full text-left cursor-pointer text-sm';
   btn.textContent = pregunta;
   btn.addEventListener('click', () => {
-    // Mostrar pregunta y respuesta en el chat
     mostrarMensaje(true, pregunta);
     mostrarMensaje(false, generateBotResponse(pregunta));
   });
@@ -126,7 +128,7 @@ function sendMessage() {
   mostrarMensaje(true, mensaje);
   mostrarMensaje(false, generateBotResponse(mensaje));
 
-  agregarHistorial(mensaje); // Agrega al historial y navegación lateral
+  agregarHistorial(mensaje);
   textarea.value = '';
 }
 
@@ -137,7 +139,6 @@ textarea.addEventListener('keydown', e => {
 
 // Botón enviar
 sendButton.addEventListener('click', sendMessage);
-sendButton.addEventListener('enter', sendMessage);
 
 // Botón nueva consulta
 btnNuevaConsulta.addEventListener("click", () => {
